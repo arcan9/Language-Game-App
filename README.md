@@ -1,2 +1,2 @@
 # Language-Game-App
-Korean voab learning app
+Korean vocab learning app
