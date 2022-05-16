@@ -35,9 +35,10 @@ let questions = [
 let app = {
   start: function () {
     this.currentPosition = 0;
+    this.currentScore = 0;
 
     let alts = document.querySelectorAll(".alternative"); // get the alternatives
-
+    // add event listener once at start of app
     alts.forEach(
       function (element, index) {
         element.addEventListener(
@@ -49,7 +50,9 @@ let app = {
       }.bind(this)
     );
 
-    this.showQuestion(questions[this.currentPosition]); // show first question
+    this.increaseScore();
+
+    this.showQuestion(questions[this.currentPosition]); // show current question
   },
 
   showQuestion: function (q) {
@@ -68,11 +71,12 @@ let app = {
 
     if (currentQuestion.correctAnswer == userSelected) {
       console.log("correct");
-      this.increasePosition();
-      this.showQuestion(questions[this.currentPosition]);
+      this.increaseScore();
     } else {
       console.log("wrong");
     }
+    this.increasePosition();
+    this.showQuestion(questions[this.currentPosition]);
   },
 
   increasePosition: function () {
@@ -81,6 +85,12 @@ let app = {
     if (this.currentPosition == questions.length) {
       this.currentPosition = 0;
     }
+  },
+
+  increaseScore: function () {
+    let keepScore = document.getElementById("score");
+    this.currentScore++;
+    keepScore.textContent++;
   },
 };
 
