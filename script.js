@@ -6,21 +6,25 @@ let question = {
 
 let app = {
   start: function () {
-    // get the alternatives
-    let alts = document.querySelectorAll(".alternative");
+    let alts = document.querySelectorAll(".alternative"); // get the alternatives
 
-    alts.forEach(function (element, index) {
-      element.addEventListener("click", function () {
-        // log as placeholder
-        console.log("check correct answer");
-      });
-    });
-    // show first question
-    this.showQuestion(question);
+    alts.forEach(
+      function (element, index) {
+        element.addEventListener(
+          "click",
+          function () {
+            this.checkAnswer(index);
+          }.bind(this)
+        );
+      }.bind(this)
+    );
+
+    this.showQuestion(question); // show first question
   },
+  //////
   showQuestion: function (q) {
-    // select dom element
-    // modify dom
+    this.currentQuestion = q; // the question currently shown is stored in this variable
+
     let titleDiv = document.getElementById("title");
     titleDiv.textContent = q.title;
 
@@ -30,7 +34,14 @@ let app = {
       element.textContent = q.alternatives[index];
     });
   },
+  //////
+  checkAnswer: function (userSelected) {
+    if (this.currentQuestion.correctAnswer == userSelected) {
+      console.log("correct");
+    } else {
+      console.log("wrong");
+    }
+  },
 };
 
-// call the start function
 app.start();
