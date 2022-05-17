@@ -1,9 +1,3 @@
-// let question = {
-//   title: "고양이",
-//   alternatives: ["dog", "cat", "bird", "fish"],
-//   correctAnswer: 1,
-// };
-
 let questions = [
   {
     title: "고양이",
@@ -67,13 +61,13 @@ let app = {
   },
 
   checkAnswer: function (userSelected) {
-    currentQuestion = questions[this.currentPosition];
+    let currentQuestion = questions[this.currentPosition];
 
     if (currentQuestion.correctAnswer == userSelected) {
-      console.log("correct");
       this.increaseScore();
+      this.showMessage(true);
     } else {
-      console.log("wrong");
+      this.showMessage(false);
     }
     this.increasePosition();
     this.showQuestion(questions[this.currentPosition]);
@@ -89,8 +83,25 @@ let app = {
 
   increaseScore: function () {
     let keepScore = document.getElementById("score");
-    this.currentScore++;
-    keepScore.textContent++;
+    // this.currentScore++;
+    keepScore.textContent = `Your score: ${this.currentScore++}`;
+  },
+
+  showMessage: function (isCorrect) {
+    let messageDiv = document.getElementById("message");
+    let result = "";
+
+    if (isCorrect) {
+      result = "That's correct!";
+    } else {
+      let currentQuestion = questions[this.currentPosition];
+      let answerIndex = currentQuestion.correctAnswer;
+      let answerText = currentQuestion.alternatives[answerIndex];
+
+      result = `Oops that's wrong! The correct answer is ${answerText}`;
+    }
+
+    messageDiv.textContent = result;
   },
 };
 
