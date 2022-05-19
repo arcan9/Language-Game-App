@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
 
+/* prevents padding from adding extra width & height to the page */
 html {
   box-sizing: border-box;
 }
@@ -40,7 +41,7 @@ button:active {
     0,
     0.3rem
   ); /* move 0 rem on hor axis, move 0.3rem on vert axis*/
-  box-shadow: 0 0.1 rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 
 #message {
