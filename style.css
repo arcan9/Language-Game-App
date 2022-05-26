@@ -40,12 +40,16 @@ button:active {
   transform: translate(
     0,
     0.3rem
-  ); /* move 0 rem on hor axis, move 0.3rem on vert axis*/
+  ); /* move 0 rem on x-axis, move 0.3rem on y-axis*/
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 
 #message {
   margin-bottom: 15px;
+}
+
+#footer {
+  font-size: small;
 }
 
 .quiz-container {
