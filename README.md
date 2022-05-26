@@ -1,4 +1,4 @@
-# Language-Game-App
+# Hada Vocab Quiz
 
 Korean vocab learning app
 <br>
