@@ -1,8 +1,10 @@
 # Hada Vocab Quiz
 
 Korean vocab learning app
-<br>
+
 Live: https://kor-vocab.netlify.app/
+
+<img src="https://github.com/arcan9/Language-Game-App/blob/main/images/language-app-2.gif" width="500">
 
 # Tech used
 
